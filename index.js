@@ -27,6 +27,11 @@ const inventory = [
  */
 function logNames(items) {
   // TODO: use `forEach`
+  items.forEach((individualItem) => {
+  let itemName = individualItem.name;
+  console.log(itemName);
+  return itemName
+ })  
 }
 
 /**
@@ -35,6 +40,10 @@ function logNames(items) {
  */
 function getUppercaseNames(items) {
   // TODO: use `map`
+  items.map((individualItem) => {
+    let capitalize = individualItem.name.toUpperCase();
+    console.log(capitalize);
+  });
 }
 
 /**
@@ -42,8 +51,16 @@ function getUppercaseNames(items) {
  * @param {number} id - id of the item to find
  * @returns {Item} - the item in `items` with the given `id`
  */
+
 function getItemById(items, id) {
   // TODO: use `find`
+  items.find((individualItem) => {
+    let idNum = individualItem.id;
+    if (id === idNum){
+      console.log(individualItem.name);
+    } 
+    return individualItem.name;
+  }) 
 }
 
 /**
@@ -53,6 +70,13 @@ function getItemById(items, id) {
  */
 function getItemPriceByName(items, name) {
   // TODO: use a loop!
+  items.forEach((individualItem) => {
+    let itemPrice = individualItem.price;
+    //console.log(itemPrice);
+    if (name === individualItem.name) {
+      console.log(itemPrice);
+    }
+  })
 }
 
 /**
@@ -62,6 +86,13 @@ function getItemPriceByName(items, name) {
  */
 function getItemsByCategory(items, category) {
   // TODO: use `filter`
+  let search = items.filter((individualItem) => { 
+    let itemCategory = individualItem.category;
+    return itemCategory === category;
+    // let itemName = individualItem.name;
+    // console.log(typeof category);
+  })
+  console.log(search)
 }
 
 /**
@@ -70,6 +101,20 @@ function getItemsByCategory(items, category) {
  */
 function countItems(items) {
   // TODO: use `reduce`
+  let count = 0
+  items.reduce((totalOfAll, individualItem) => {
+    let itemName = individualItem.name;
+    if(totalOfAll[itemName] === undefined) {
+      totalOfAll[itemName] = 1;
+      count += 1
+    } else {
+      totalOfAll[itemName] +=1;
+    }
+    //console.log(totalOfAll)
+    return totalOfAll;
+    
+  }, {});
+  console.log(count);
 }
 
 /**
@@ -78,6 +123,10 @@ function countItems(items) {
  */
 function getTotalPrice(items) {
   // TODO: use `reduce`
+  const allPrice = items.reduce((totalPrice, individualItem) => {
+    return totalPrice + individualItem.price;
+  },0)
+  console.log(allPrice);
 }
 
 // === READ BUT DO NOT CHANGE THE CODE BELOW ===
