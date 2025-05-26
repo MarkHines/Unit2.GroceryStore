@@ -28,10 +28,10 @@ const inventory = [
 function logNames(items) {
   // TODO: use `forEach`
   items.forEach((individualItem) => {
-  let itemName = individualItem.name;
-  console.log(itemName);
-  return itemName
- })  
+    let itemName = individualItem.name;
+    console.log(itemName);
+    return itemName;
+  })  
 }
 
 /**
@@ -43,6 +43,7 @@ function getUppercaseNames(items) {
   items.map((individualItem) => {
     let capitalize = individualItem.name.toUpperCase();
     console.log(capitalize);
+    return capitalize;
   });
 }
 
@@ -76,6 +77,7 @@ function getItemPriceByName(items, name) {
     if (name === individualItem.name) {
       console.log(itemPrice);
     }
+    return itemPrice;
   })
 }
 
@@ -86,13 +88,12 @@ function getItemPriceByName(items, name) {
  */
 function getItemsByCategory(items, category) {
   // TODO: use `filter`
-  let search = items.filter((individualItem) => { 
+  items.filter((individualItem) => { 
     let itemCategory = individualItem.category;
     return itemCategory === category;
     // let itemName = individualItem.name;
     // console.log(typeof category);
   })
-  console.log(search)
 }
 
 /**
